@@ -54,12 +54,12 @@ Spell.prototype.getDetails = function() {
  * @property {string} description
  */
 
-function DamageSpell(name, cost, damage, description) {
-  Spell.call(this, name, cost, description);
+function DamageSpell( name, cost, damage, description ) {
+  Spell.call( this, name, cost, description );
   this.damage = damage;
 }
 
-DamageSpell.prototype = Object.create(Spell.prototype, {});
+DamageSpell.prototype = Object.create( Spell.prototype, {} );
 
 /**
  * Now that you've created some spells, let's create
@@ -78,12 +78,11 @@ DamageSpell.prototype = Object.create(Spell.prototype, {});
  * @method  invoke
  */
 
- function Spellcaster(name, health, mana) {
+ function Spellcaster( name, health, mana ) {
   this.name = name;
   this.health = health;
   this.mana = mana;
   this.isAlive = true;
-
  }
 
   /**
@@ -97,6 +96,9 @@ DamageSpell.prototype = Object.create(Spell.prototype, {});
    * @param  {number} damage  Amount of damage to deal to the spellcaster
    */
 
+   Spellcaster.prototype.inflictDamage( damage ) {
+
+   }
   /**
    * @method spendMana
    *
