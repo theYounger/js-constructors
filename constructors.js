@@ -98,18 +98,19 @@ function Spellcaster( name, health, mana ) {
 
 Spellcaster.prototype.inflictDamage = function( damage ) {
 
-  if(damage <= this.health) {
+  if( damage <= this.health ) {
     this.health = this.health - damage;
 
-    if(this.health === 0) {
+    if( this.health === 0 ) {
     this.isAlive = false;
     }
   }
-  if (damage > this.health) {
+  if ( damage > this.health ) {
     this.health = 0;
     this.isAlive = false;
   }
 };
+
   /**
    * @method spendMana
    *
@@ -119,6 +120,22 @@ Spellcaster.prototype.inflictDamage = function( damage ) {
    * @param  {number} cost      The amount of mana to spend.
    * @return {boolean} success  Whether mana was successfully spent.
    */
+
+Spellcaster.prototype.spendMana = function( cost ) {
+  var success;
+
+  if( this.mana >= cost ) {
+    this.mana = this.mana - cost;
+    success = true;
+    return success;
+  }
+  if( this.mana < cost) {
+    success = false;
+    return success;
+  }
+};
+
+
 
   /**
    * @method invoke
