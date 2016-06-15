@@ -78,7 +78,7 @@ DamageSpell.prototype = Object.create( Spell.prototype, {} );
  * @method  invoke
  */
 
- function Spellcaster( name, health, mana ) {
+function Spellcaster( name, health, mana ) {
   this.name = name;
   this.health = health;
   this.mana = mana;
@@ -96,9 +96,20 @@ DamageSpell.prototype = Object.create( Spell.prototype, {} );
    * @param  {number} damage  Amount of damage to deal to the spellcaster
    */
 
-   Spellcaster.prototype.inflictDamage( damage ) {
+Spellcaster.prototype.inflictDamage = function( damage ) {
 
-   }
+  if(damage <= this.health) {
+    this.health = this.health - damage;
+
+    if(this.health === 0) {
+    this.isAlive = false;
+    }
+  }
+  if (damage > this.health) {
+    this.health = 0;
+    this.isAlive = false;
+  }
+};
   /**
    * @method spendMana
    *
